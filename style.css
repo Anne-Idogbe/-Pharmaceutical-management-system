@@ -1,0 +1,340 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    height: 100vh;
+
+}
+.diagnosis{
+    display: flex;
+    justify-content: space-between;
+}
+.btna{
+    background-color: white;
+    border: .5px solid gray;
+    color: navy;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+.btnA{
+    background-color: white;
+    border: .5px solid gray;
+    color: navy;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+.btnb{
+    background-color:red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px; 
+}
+
+
+/* booking */
+.booking {
+    margin-top: 500px;
+    background-color: #fff;
+    /* background-color: pink; */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    padding: 20px 30px;
+    text-align: center;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+    position:relative;
+
+}
+
+.booking:hover {
+    transform: translateY(-10px);
+}
+
+/* Button Styles */
+.actions {
+    margin-bottom: 20px;
+
+}
+
+.Form_btn {
+    /* background-color: #3498db; */
+    background-color:rgba(0, 0, 255, 0.699);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.Form_btn:hover {
+    /* background-color: #2980b9; */
+    background-color: navy;
+}
+
+.Form_btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.8);
+}
+
+/* Form Styles */
+form {
+    margin-bottom: 40px;
+    
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #bdc3c7;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Receipt and Diagnosis Result */
+#appointmentReceipt,
+#diagnosisResult {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    margin-top: 20px;
+    border-left: 4px solid #16a085;
+}
+
+/* Hidden Class for Toggle */
+.hidden {
+    display: none;
+}
+
+/*section one ends here*/
+
+/*section three starts here*/
+.image3A{
+    background-image: url(./image/threeA.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    height: 400px;
+}
+.image3B{
+    background-image: url(./image/threeB.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    height: 400px;
+}
+.image3C{
+    background-image: url(./image/threeC.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    height: 400px;
+}
+
+/*section three ends here*/
+
+/* section four*/
+.image4{
+    background-image: url(./image/international.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    height: 500px;
+
+}
+
+.pre-foot{
+    display: flex;
+    gap: 100px;
+    background-color: rgba(0, 0, 255, 0.699);
+    /* background-color:navy; */
+    color: white;
+}
+
+.pre-foot-left{
+    display: flex;
+    flex-direction: column;
+}
+
+.pre-foot-left a{
+    display: flex;
+    justify-content: left;
+    /* color: #032d60; */
+    margin: 0 0 20px 40px;
+    padding-top: 30px;
+    color: white;
+}
+
+.pre-foot-left p{
+    margin-left: 30px;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.pre-foot-left h4{
+    margin-left: 30px;
+}
+
+.ft-icon-cont{
+    display: flex;
+    gap: -15px;
+    margin-left: 10px;
+}
+
+.pre-foot-left h4{
+    /* color: rgb(68, 68, 68); */
+    margin-bottom: 20px;
+    color: white;
+}
+
+.pre-foot-right{
+    display: flex;
+    gap: 20px;
+}
+
+.pre-foot-right h4{
+    /* color: rgb(68, 68, 68); */
+    color: white;
+}
+
+.list-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list-cont h4{
+    margin-bottom: 20px;
+}
+.pre-foot-right a{
+    text-decoration: none;
+    /* color: black; */
+    font-size: 14px;
+    display: flex;
+    justify-content: left;
+    color: white;
+}
+
+footer{
+   height: 100px;
+   display: flex; 
+   justify-content: space-around;
+   flex-direction: row;
+   /* background-color: #f0f0f0; */
+   padding-top: 40px;
+   border-top: solid #DDD;
+   border-width: 50%;
+   background-color: navy;
+   color: white;
+   
+}
+
+/* CSS for dropdown form visibility */
+.hidden {
+    display: none;
+}
+
+.form-dropdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.form-dropdown.show {
+    max-height: 500px; /* Adjust based on your form's height */
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .Form_btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+
+/* Print Styles */
+@media print {
+    body {
+        background: none;
+        color: #000;
+    }
+
+    .container {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .Form_btn, .actions {
+        display: none;
+    }
+
+    #printAppointmentButton, #printSummaryButton {
+        display: none;
+    }
+
+    #diagnosisResult, #appointmentReceipt {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.error {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.hidden {
+    display: none;
+}

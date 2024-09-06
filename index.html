@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmaceutical Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- nav starts here -->
+    <nav class="bg-blue-200 w-full fixed z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="block">
+                    <img style=" width: 180px;" src="./image/USZ-Logo.png" />
+                </a>
+
+                <ul class="lg:flex space-x-4">
+                    <li><a href="#" class="hover:bg-blue-600 text-white font-semibold">About</a></li>
+                    <li><a href="#" class="hover:bg-blue-600 text-white font-semibold">Services</a></li>
+                    <li><a href="#" class="hover:bg-blue-600 text-white font-semibold">Departments</a></li>
+                    <li><a href="#" class="hover:bg-blue-600 text-white font-semibold">Staff</a></li>
+                    <li><a href="#" class="hover:bg-blue-600 text-white font-semibold">Clients</a></li>
+                    <li><a href="#" class="hover:bg-blue-600 text-white font-semibold">Pharmacy</a></li>
+
+
+                </ul>
+
+                <a href="#" class="lg:flex gap-5 items-center">
+                    <button class="btna flex gap-2">
+                        <img src="./image/telephone.png" style="width: 15px;" />
+                        090-976-3333-49
+                    </button>
+                    <button class="btnb">Emergency 24h</button>
+                </a>
+            </div>
+        </div>
+
+    </nav>
+    <!-- nav ends here -->
+
+    <!-- Hero section -->
+    <section id="about" class="relative w-full h-auto   ">
+        <img src="./image/ddoctors.jpg" class="w-full h-auto opacity-100">
+
+        <div class="absolute inset-0 flex flex-col justify-center items-center mx-auto bg-transparent ">
+            <div class="booking">
+                <h1 class="text-2xl text-gray-600 font-bold">Welcome To</h1>
+                <h1 class="text-5xl text-blue-800 font-bold mb-6">USZ</h1>
+
+                <div class="actions">
+                    <button id="bookAppointmentButton" class="Form_btn">Book an Appointment</button>
+                    <button id="emergencyDiagnosisButton" class="Form_btn">Get Emergency Diagnosis</button>
+                </div>
+
+                <!-- Appointment Booking Form -->
+                <div id="appointmentFormContainer" class="hidden">
+                    <h2 class="text-xl text-gray-600 font-bold">Book an Appointment</h2>
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="name">FirstName:</label>
+                            <input type="text" id="firstname">
+                            <p id="firstnameError" class="error hidden">Cannot be empty</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">LastName:</label>
+                            <input type="text" id="lastname">
+                            <p id="lastnameError" class="error hidden">Cannot be empty</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email">
+                            <p id="emailError" class="error hidden">Cannot be empty</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="physician">Physician:</label>
+                            <select id="physician">
+                                <option value="">Select Physician</option>
+                                <option value="Dr. Smith">Dr. Smith - Cardiologist</option>
+                                <option value="Dr. Johnson">Dr. Johnson - Neurologist</option>
+                                <option value="Dr. Lee">Dr. Lee - Dermatologist</option>
+                                <option value="Dr. Scot">Dr.Scot - Paediatrician</option>
+                                <option value="Dr. Olivia">Dr.Olivia - Oncologist</option>
+                                <option value="Dr. Hart">Dr. Hart - Gynaecologist</option>
+                                <option value="Dr. Anne " >Dr.Anne - Urologist</option>
+                            </select>
+                            <p id="physicianError" class="error hidden">Cannot be empty</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Appointment Date:</label>
+                            <input type="date" id="date">
+                            <p id="dateError" class="error hidden">Cannot be empty</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Appointment Time:</label>
+                            <input type="time" id="time">
+                            <p id="timeError" class="error hidden">Cannot be empty</p>
+                        </div>
+                        <button type="submit" class="Form_btn">Book Appointment</button>
+                    </form>
+                    <div id="appointmentReceipt" class="hidden">
+                        <div class="diagnosis">
+                            <h3 class="text-2xl text-gray-600 font-bold">Appointment Receipt</h3>
+
+                            <div class="flex flex-col justify-center align-center">
+                                <img style=" width: 180px;" src="./image/USZ-Logo.png" />
+                                <button class="btnA flex  gap-2">
+                                   <img src="./image/telephone.png" style="width: 15px;" />
+                                   090-976-3333-49
+                                </button>
+                            </div>
+
+                            <a href="index.html">
+                                <button id="" class="Form_btn">HOME</button>
+                            </a>
+                           
+                        </div>
+                        <p id="appointmentDetails"></p>
+                        <button id="printAppointmentButton" class="Form_btn">Print Appointment</button>
+                    </div>
+                </div>
+
+
+                <!-- Emergency Diagnosis Form -->
+                <div id="diagnosisFormContainer" class="hidden">
+                    <h2 class="text-xl text-gray-600 font-bold">Emergency Diagnosis</h2>
+                    <form id="diagnosisForm">
+                        <div class="form-group">
+                            <label>Select Your Symptoms:</label>
+                            <div class="symptoms-list">
+                                <label><input type="checkbox" class="symptom" value="fever"> Fever</label>
+                                <label><input type="checkbox" class="symptom" value="cough"> Cough</label>
+                                <label><input type="checkbox" class="symptom" value="sore throat"> Sore Throat</label>
+                                <label><input type="checkbox" class="symptom" value="headache"> Headache</label>
+                                <label><input type="checkbox" class="symptom" value="nausea"> Nausea</label>
+                                <label><input type="checkbox" class="symptom" value="sensitivity to light"> Sensitivity to Light</label>
+                                <label><input type="checkbox" class="symptom" value="chest pain"> Chest Pain</label>
+                                <label><input type="checkbox" class="symptom" value="shortness of breath"> Shortness of Breath</label>
+                                <label><input type="checkbox" class="symptom" value="rash"> Rash</label>
+                                <label><input type="checkbox" class="symptom" value="itching"> Itching</label>
+                                <label><input type="checkbox" class="symptom" value="swelling"> Swelling</label>
+                                <label><input type="checkbox" class="symptom" value="joint pain"> Joint Pain</label>
+                                <label><input type="checkbox" class="symptom" value="fatigue"> Fatigue</label>
+                                <label><input type="checkbox" class="symptom" value="diarrhea"> Diarrhea</label>
+                                <label><input type="checkbox" class="symptom" value="vomiting"> Vomiting</label>
+                                <label><input type="checkbox" class="symptom" value="abdominal pain"> Abdominal Pain</label>
+                            </div>
+                            <p id="symptomsError" class="error hidden">Please select at least one symptom</p>
+                        </div>
+                        <button type="submit" class="Form_btn">Get Diagnosis</button>
+                    </form>
+                    <div id="diagnosisResult" class="hidden">
+                        <div class="diagnosis ">
+                            <h3 class="text-2xl text-gray-600 font-bold">Diagnosis Result</h3>
+                            <div class="flex flex-col justify-center align-center">
+                                <img style=" width: 180px;" src="./image/USZ-Logo.png" />
+                                <button class="btnA flex  gap-2">
+                                   <img src="./image/telephone.png" style="width: 15px;" />
+                                   090-976-3333-49
+                                </button>
+                            </div>
+                            <a href="index.html">
+                                <button id="" class="Form_btn">HOME</button>
+                            </a>
+                           
+                            
+                        </div>
+
+                        <p id="diagnosisDetails"></p>
+                        <button id="printSummaryButton" class="hidden Form_btn">Print Summary</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+    <!-- Hero section ends here -->
+
+
+    <!-- section two starts here -->
+
+    <section class=" py-10 mx-auto container ">
+        <h1 class="text-5xl font-bold mt-12 text-blue-500 ml-12 items-center">Medical innovation</h1>
+        <div class="mx-auto p-10 relative">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-1">
+                <!-- grid one -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 relative">
+                    <!-- image -->
+                    <img src="./image/twoA.jpg" class="transform hover:scale-125 transition duration-300 ease-in-out">
+
+                    <div class="p-10">
+                        <p class=" text-gray-600">Prostrate cancer</p>
+                        <h2 class="text-2xl font-semibold mb-4">
+                            Innovative genetic blood
+                            test for the early
+                            detection of prostate cancer
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <!-- grid two -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2">
+                    <!-- image -->
+                    <img src="./image/twoB.jpg" class="transform hover:scale-125 transition duration-300 ease-in-out">
+
+                    <div class="p-10">
+                        <p class=" text-gray-600">World's first reconstructive surgery</p>
+                        <h2 class="text-2xl font-semibold mb-4">
+                            Microsurgery on the
+                            lymphatic system
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <!-- grid three -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2">
+                    <!-- image -->
+                    <img src="./image/twoC.jpg" class="transform hover:scale-125 transition duration-300 ease-in-out">
+
+                    <div class="p-10">
+                        <p class=" text-gray-600">New surgical approach</p>
+                        <h2 class="text-2xl font-semibold mb-4">
+                            Aortic replacement also
+                            in high-rist patients
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section two ends here -->
+
+    <!-- section three starts here -->
+
+    <div class="mx-auto  p-[35px] container ">
+        <h1 class="text-5xl font-bold text-blue-500 ml-12 items-center">We do research for you</h1>
+        <h1 class="text-xl font-bold mb-12 text-blue-800 ml-[55px] items-center">View all</h1>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-1">
+
+            <!-- item 1 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 relative image3A">
+                <!-- image -->
+
+
+                <div class="absolute inset-0 flex flex-col justify-center mx-auto bg-transparent ">
+                    <div class=" mt-[150px] align-center">
+                        <p class="text-white text-xl font-bold p-4 ml-9">News</p>
+                        <h2 class="text-white text-2xl font-bold p-4 ml-9">
+                            Novel treatment approach for autoimmune diseases
+                            with interleukin-2
+                        </h2>
+                        <p class="text-white text-xl font-bold p-4 ml-9">Aug 2024</p>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+            <!-- item 2 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 relative image3B">
+                <!-- image -->
+                <!-- <img src="../images/man with headphone.webp"> -->
+                <!-- <img src="../images/banner picture.webp" class="w-full h-auto"> -->
+
+                <div class="absolute inset-0 flex flex-col justify-center mx-auto bg-transparent ">
+                    <div class="mt-[150px] align-center">
+                        <p class="text-white text-xl font-bold p-4 ml-9">News</p>
+                        <h2 class="text-white text-2xl font-bold p-4 ml-9">
+                            Novel treatment approach for autoimmune diseases
+                            with interleukin-2
+                        </h2>
+                        <p class="text-white text-xl font-bold p-4 ml-9">Aug 2024</p>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <!-- item 3 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 relative image3C">
+                <!-- image -->
+                <!-- <img src="../images/man with headphone.webp"> -->
+                <!-- <img src="../images/banner picture.webp" class="w-full h-auto"> -->
+
+                <div class="absolute inset-0 flex flex-col justify-center mx-auto bg-transparent ">
+                    <div class="mt-[150px] align-center">
+                        <p class="text-white text-xl font-bold p-4 ml-9">News</p>
+                        <h2 class="text-white text-2xl font-bold p-4 ml-9">
+                            Novel treatment approach for autoimmune diseases
+                            with interleukin-2
+                        </h2>
+                        <p class="text-white text-xl font-bold p-4 ml-9">Aug 2024</p>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- section three ends here -->
+
+        <!-- section four starts here -->
+
+        <section class=" py-16 mx-auto container">
+            <h1 class="text-5xl font-bold mb-6 text-blue-500 ml-12 items-center">International Clients</h1>
+            <div class="mx-auto ">
+                <div class="grid md:grid-cols-1 lg:grid-cols-2 ">
+                    <!-- grid one -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 flex flex-col justify-center">
+
+                        <div class="p-16">
+                            <h2 class=" text-gray-600 text-3xl font-bold mb-4">For international patients</h2>
+                            <p class="text-xl font-semibold mb-4">
+                                As one of the world's leading university hospitals,we
+                                cover the entire spectrum of medicine and have close ties
+                                to research and innovation.Our international Office is
+                                here to make sure you and your family have access to this
+                                high quality medical care.
+                            </p>
+                            <div class="flex ml-12 mt-[70px]">
+                                <a href="#"
+                                    class="mt-6 block bg-blue-500 text-2xl px-6 py-2  hover:bg-blue-800 rounded-lg ">LEARN
+                                    MORE</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- grid two -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 image4">
+
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- section four ends here -->
+
+        <!-- section five starts here -->
+
+        <section class=" py-10 mx-auto container">
+            <h1 class="text-5xl font-bold mt-12 text-blue-500 ml-12 items-center">Patients tell their stories</h1>
+            <div class="mx-auto p-10">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-1">
+                    <!-- grid one -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2">
+                        <!-- image -->
+                        <img src="./image/fourA.jpg"
+                            class="transform hover:scale-125 transition duration-300 ease-in-out">
+
+                        <div class="p-10">
+                            <p class=" text-gray-600">Acute myeloid leukemia</p>
+                            <h2 class="text-2xl font-semibold mb-4">
+                                "From the fight against
+                                leukemia to commitment"
+
+
+                        </div>
+
+                    </div>
+
+                    <!-- grid two -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2">
+                        <!-- image -->
+                        <img src="./image/fourB.jpg"
+                            class="transform hover:scale-125 transition duration-300 ease-in-out">
+
+                        <div class="p-10">
+                            <p class=" text-gray-600">Aortic aneurysm</p>
+                            <h2 class="text-2xl font-semibold mb-4">
+                                "I knew i was in good
+                                hands"
+
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <!-- grid three -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2">
+                        <!-- image -->
+                        <img src="./image/fourC.jpg"
+                            class="transform hover:scale-125 transition duration-300 ease-in-out">
+
+                        <div class="p-10">
+                            <p class=" text-gray-600">PCOS</p>
+                            <h2 class="text-2xl font-semibold mb-4">
+                                "We need to stop feeling
+                                ashamed"
+
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- section five ends here -->
+
+
+
+        <!-- prefooter and footer secction starts HERE -->
+        <div class="container mx-auto flex gap-[100px] bg-blue-500 text-white w-full">
+            <div class="pre-foot-left">
+                <a href="#">
+                    <img style="width: 150px;" src="./image/USZ-Logo.png" alt="Logo">
+                </a>
+                <p>Our goal is to partner with you to see that your pet has as many happy,healthy years as possible.
+                </p>
+                <h4>Follow Us on Social:</h4>
+
+                <div class="ft-icon-cont">
+                    <a href="#">
+                        <img style="height: 30px;" src="./image/facebook.png" alt="Icon">
+                    </a>
+                    <a href="#">
+                        <img style="height: 30px;" src="./image/twitter.png" alt="Icon">
+                    </a>
+                    <a href="#">
+                        <img style="height: 30px;" src="./image/linkedin.png" alt="Icon">
+                    </a>
+                    <a href="#">
+                        <img style="height: 30px;" src="./image/instagram.png" alt="Icon">
+                    </a>
+                    <a href="#">
+                        <img style="height: 30px;" src="./image/youtube.png" alt="Icon">
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="pre-foot-right">
+                <div class="list-cont">
+                    <h4>Opening Time</h4>
+                    <a href="#">Mon - Fri: 8AM - 10PM</a>
+                    <a href="#">Sat: 9AM-8PM</a>
+                    <a href="#"></a>
+                    <a href="#">Sun: Closed</a>
+                    <!-- <a href="#"></a> -->
+                    <h4>We work All The Holidays</h4>
+
+
+                </div>
+                <div class="list-cont">
+                    <h4>Quick Links</h4>
+                    <a href="#">Our Services</a>
+                    <a href="#">Membership</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Meet The Team</a>
+                    <a href="#">Privacy Policy</a>
+
+                </div>
+                <div class="list-cont">
+                    <h4>About Us</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Our Clients</a>
+                    <a href="#">Our Pharmacy</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#"> Store Guide</a>
+
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Copyright 2023 Heritage. All rights reserved. </p>
+            <p>Policy</p>
+            <p>Questions</p>
+            <p>Affiliate</p>
+            <p>Help</p>
+        </footer>
+
+
+        <!-- prefooter and footer section ends here -->
+        <script src="script.js"></script>
+</body>
+
+</html>
